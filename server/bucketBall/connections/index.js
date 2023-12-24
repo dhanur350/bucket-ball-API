@@ -8,5 +8,10 @@ const client = new MongoClient(database);
 async function configDatabase() {
   const connect = await client.connect();
   const dbInstance = connect.db(process.env.BUCKET_DB);
-  const collection = dbInstance.collection(process.env)
+  const collection = dbInstance.collection(process.env.BUCKET_COLLECTION);
+  return collection;
+}
+
+module.exports = {
+  configDatabase
 }
