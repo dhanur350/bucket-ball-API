@@ -1,19 +1,20 @@
-const { createBucketCollection } = require("../models/models");
+const { createBucketCollection, getAllBucketList } = require("../models/models");
 
-async function createBucketEntry (req,res) {
+async function createBucketEntry(req, res) {
   const data = req.body;
-  const createBucket = await createBucketCollection();
+  const createBucket = await createBucketCollection(data);
   console.log(data);
-  res.json(data);
+  res.json(createBucket);
   res.end();
 }
 
-async function getAllBallsEntry() {
-
+async function getAllBucketsEntry(req, res) {
+  const getBuckets = await getAllBucketList();
+  res.json(getBuckets);
+  res.end();
 }
 
 module.exports = {
   createBucketEntry,
-  getAllBallsEntry
-}
-
+  getAllBucketsEntry,
+};

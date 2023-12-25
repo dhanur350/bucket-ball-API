@@ -4,7 +4,11 @@ const { configDatabase } = require("../connections/index.js");
 const Model = require("../schemas/schemas.js");
 const client = new MongoClient(database);
 
-// function getAllBucketList() {}
+async function getAllBucketList() {
+  const connection = await configDatabase();
+  const data = await connection.find({}).toArray();
+  return data;
+}
 
 async function createBucketCollection(body) {
   const connection = await configDatabase();
@@ -27,6 +31,5 @@ async function createBucketCollection(body) {
 
 module.exports = {
   getAllBucketList,
-  createBucketCollection,
   createBucketCollection,
 };

@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
 
-const bucketSchema = new Schema({
-  bucketName: Schema.Types.String,
+const ballSchema = new Schema({
+  ballName: Schema.Types.String,
   volumnInInches: Schema.Types.Number,
 });
 
-module.exports = model("createBucket", bucketSchema);
+module.exports = model("createBall", ballSchema);
