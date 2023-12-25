@@ -3,6 +3,7 @@ const bodyparser = require('body-parser')
 const cors = require("cors");
 const app = express();
 const dotenv = require("dotenv");
+const { createBucketEntry, getAllBallsEntry } = require("./ballAPI/controllers/controllers");
 dotenv.config();
 const port = process.env.PORT;
 
@@ -16,14 +17,9 @@ app.use(
   })
 );
 
-app.get("/", () => {});
+app.get("/all-balls-entry", getAllBallsEntry);
 
-app.post('/bucketList',(req,res)=> {
-  const data = req.body;
-  console.log(data);
-  res.json(data);
-  res.end();
-})
+app.post('/bucket-list', createBucketEntry)
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

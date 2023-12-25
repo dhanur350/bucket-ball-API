@@ -9,7 +9,7 @@ bucketForm.addEventListener("submit", async (event) => {
   console.log(formDataObject);
 
   try {
-    const response = await fetch("http://localhost:4000/bucketList", {
+    const response = await fetch("http://localhost:4000/bucket-list", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
